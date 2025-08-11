@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Shield, Clock, Heart } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
+import { useChat } from "@/hooks/useChat";
 
 export const HeroSection = () => {
+  const { startNewSession } = useChat();
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-calm">
       <div 
@@ -33,7 +35,14 @@ export const HeroSection = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-12">
-            <Button size="lg" className="w-full sm:w-auto">
+            <Button 
+              size="lg" 
+              className="w-full sm:w-auto"
+              onClick={() => {
+                startNewSession();
+                document.getElementById('chat')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               <MessageCircle className="w-5 h-5 mr-2" />
               Start Your First Session
             </Button>

@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Heart, MessageCircle } from "lucide-react";
+import { useChat } from "@/hooks/useChat";
 
 export const Header = () => {
+  const { startNewSession } = useChat();
   return (
     <header className="w-full bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -27,7 +29,15 @@ export const Header = () => {
           <Button variant="therapeutic" size="sm">
             Sign In
           </Button>
-          <Button variant="default" size="sm" className="hidden sm:flex">
+          <Button 
+            variant="default" 
+            size="sm" 
+            className="hidden sm:flex"
+            onClick={() => {
+              startNewSession();
+              document.getElementById('chat')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
             <MessageCircle className="w-4 h-4 mr-2" />
             Start Chat
           </Button>
