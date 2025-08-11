@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Shield, Clock, Heart } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
-import { useChat } from "@/hooks/useChat";
+import { useNavigate } from "react-router-dom";
 
 export const HeroSection = () => {
-  const { startNewSession } = useChat();
+  const navigate = useNavigate();
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-calm">
       <div 
@@ -38,10 +38,7 @@ export const HeroSection = () => {
             <Button 
               size="lg" 
               className="w-full sm:w-auto"
-              onClick={() => {
-                startNewSession();
-                document.getElementById('chat')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              onClick={() => navigate('/chat')}
             >
               <MessageCircle className="w-5 h-5 mr-2" />
               Start Your First Session
