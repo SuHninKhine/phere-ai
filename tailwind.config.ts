@@ -66,7 +66,23 @@ export default {
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				sm: 'calc(var(--radius) - 4px)',
+				xl: 'calc(var(--radius) + 4px)',
+				'2xl': 'calc(var(--radius) + 8px)'
+			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-calm': 'var(--gradient-calm)',
+				'gradient-accent': 'var(--gradient-accent)'
+			},
+			boxShadow: {
+				'soft': 'var(--shadow-soft)',
+				'gentle': 'var(--shadow-gentle)',
+				'warm': 'var(--shadow-warm)'
+			},
+			transitionTimingFunction: {
+				'calm': 'cubic-bezier(0.23, 1, 0.32, 1)',
+				'gentle': 'ease-out'
 			},
 			keyframes: {
 				'accordion-down': {
